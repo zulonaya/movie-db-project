@@ -15,6 +15,7 @@ import { useMovieFetch } from '../hooks/useMovieFetch'
 //Image
 import NoImage from '../images/no_image.jpg'
 import { BreadCrumbs } from './BreadCrumbs';
+import { MovieInfo } from './MovieInfo';
 
 export const Movie = () => {
     const { movieId } = useParams();
@@ -27,9 +28,7 @@ export const Movie = () => {
     return (
         <>
             <BreadCrumbs movieTitle={movie.original_title} movieId={movie.id} />
-        <div>
-            Moive
-            </div>
+            <MovieInfo movie={movie} />
         </>
     )
 }
