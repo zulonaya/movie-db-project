@@ -7,6 +7,9 @@ import { POSTER_SIZE, IMAGE_BASE_URL } from '../config';
 //components
 import { Grid } from './Grid';
 import Spinner from './Spinner';
+import { BreadCrumbs } from './BreadCrumbs';
+import { MovieInfo } from './MovieInfo';
+import { MovieInfoBar } from './MovieInfoBar';
 
 
 //Hooks
@@ -14,8 +17,6 @@ import { useMovieFetch } from '../hooks/useMovieFetch'
 
 //Image
 import NoImage from '../images/no_image.jpg'
-import { BreadCrumbs } from './BreadCrumbs';
-import { MovieInfo } from './MovieInfo';
 
 export const Movie = () => {
     const { movieId } = useParams();
@@ -29,6 +30,11 @@ export const Movie = () => {
         <>
             <BreadCrumbs movieTitle={movie.original_title} movieId={movie.id} />
             <MovieInfo movie={movie} />
+            <MovieInfoBar
+                time={movie.runtime}
+                budget={movie.budget}
+                revenue={movie.revenue}
+            />
         </>
     )
 }
